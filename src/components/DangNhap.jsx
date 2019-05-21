@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import axios from 'axios';
 
 class DangNhap extends Component {
 	constructor(props) {
@@ -18,6 +19,21 @@ class DangNhap extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault()
+
+		// axios
+		// 	.get(`http://svcy.myclass.vn/api/QuanLyTrungTam/DangNhap?taikhoan=${this.state.taiKhoan}&matkhau=${this.state.matKhau}`)
+		// 	.then(res => console.log(res))
+		// 	.catch(err => console.log(err))
+
+		axios
+			.get('http://svcy.myclass.vn/api/QuanLyTrungTam/DangNhap', {
+				params: {
+					taikhoan: this.state.taiKhoan,
+					matkhau: this.state.matKhau
+				}
+			})
+			.then(res => console.log(res))
+			.catch(err => console.log(err))
 	}
 
 	render() {
