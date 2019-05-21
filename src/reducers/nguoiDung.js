@@ -6,8 +6,13 @@ const initialState = {
 const nguoiDungReducer = (state = initialState, action) => {
     switch (action.type) {
         case "DANG_NHAP":
-            
-            break;
+            // const newState = {...state};
+            // newState.nguoiDung = action.nguoiDung
+            return {
+                ...state,
+                nguoiDung: action.nguoiDung,
+                daDangNhap: true
+            }
     
         default:
             break;
