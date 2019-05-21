@@ -6,12 +6,15 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import DanhSachKhoaHoc from './components/DanhSachKhoaHoc'
 import DangNhap from './components/DangNhap';
 import NotFound from './components/NotFound';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
 
       <BrowserRouter>
+        <Header />
+
         <Switch>
           <Route path="/" exact component={DangNhap} />
           <Route path="/dang-nhap" exact component={DangNhap} />

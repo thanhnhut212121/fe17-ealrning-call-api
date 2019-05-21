@@ -13,6 +13,13 @@ const nguoiDungReducer = (state = initialState, action) => {
                 nguoiDung: action.nguoiDung,
                 daDangNhap: true
             }
+
+        case "DANG_XUAT":
+            return {
+                ...state,
+                nguoiDung: {},
+                daDangNhap: false
+            }
     
         default:
             break;

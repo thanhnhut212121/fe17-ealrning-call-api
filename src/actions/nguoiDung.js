@@ -12,9 +12,18 @@ export const dangNhap = (data) => {
             .then(res => {
                 dispatch({
                     type: "DANG_NHAP",
-                    nguoiDung: res.data
+                    nguoiDung: res.data[0]
                 })
             })
             .catch(err => console.log(err))
+    }
+}
+
+export const dangXuat = () => {
+    return (dispatch) => {
+        dispatch({
+            type: "DANG_XUAT",
+            nguoiDung: {}
+        })
     }
 }
