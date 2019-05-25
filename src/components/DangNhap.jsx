@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Container, Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 import {dangNhap} from '../actions/nguoiDung';
 import {connect} from 'react-redux';
 
@@ -21,13 +21,22 @@ class DangNhap extends Component {
 	onSubmit = (e) => {
 		e.preventDefault()
 		
-		this.props.dangNhap(this.state)
+		this.props.dangNhap(this.state, this.props.history)
 	}
 
 	render() {
+		const { errors } = this.props
 		return (
 			<div>
 				<h1>ĐĂNG NHẬP</h1>
+
+				{
+					errors.dangNhap ?
+					<Alert color="danger" >
+						{errors.dangNhap}
+					</Alert> : null
+				}
+
 				<Container className="text-left">
 					<Form onSubmit={this.onSubmit}>
 						<FormGroup>
@@ -60,5 +69,11 @@ class DangNhap extends Component {
 	}
 }
 
+const mapStateToProps = (state) => {
+	return {
+		errors: state.errors
+	}
+}
 
-export default connect(null, {dangNhap})(DangNhap);
+
+export default connect(mapStateToProps, {dangNhap})(DangNhap);

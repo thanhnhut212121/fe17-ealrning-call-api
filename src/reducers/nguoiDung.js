@@ -25,7 +25,7 @@ const nguoiDungReducer = (state = initialState, action) => {
             break;
     }
 
-    return {...state};
+    return state;
 }
 
 export default nguoiDungReducer
