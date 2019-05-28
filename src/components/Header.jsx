@@ -24,7 +24,7 @@ class Header extends Component {
             daDangNhap ?
               (<Nav className="ml-auto" navbar>
                 <NavItem>
-                  <Link to="/chitiet" className="nav-link">
+                  <Link to="/nguoi-dung" className="nav-link">
                     Xin chào {nguoiDung.HoTen}
                   </Link>
                 </NavItem>

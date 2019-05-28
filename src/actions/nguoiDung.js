@@ -66,3 +66,22 @@ export const dangKy = (data, history) => {
             })
     }
 }
+
+export const capNhatThongTin = (data) => {
+    console.log(data)
+    return (dispatch) => {
+        axios
+            .put("http://svcy.myclass.vn/api/QuanLyTrungTam/CapNhatThongTinNguoiDung", data)
+            .then(res => {
+                if(!res.data) return Promise.reject({errors: "FAIL TO UPDATE"})
+                
+                dispatch({
+                    type: "CAP_NHAT",
+                    nguoiDung: res.data
+                })
+            })
+            .catch(err => {
+                dispatch(layErrors("LAY_ERRORS_CAP_NHAT_THONG_TIN", err))
+            })
+    }
+}

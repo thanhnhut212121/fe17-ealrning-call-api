@@ -20,6 +20,12 @@ const nguoiDungReducer = (state = initialState, action) => {
                 nguoiDung: {},
                 daDangNhap: false
             }
+
+        case "CAP_NHAT":
+            return {
+                ...state,
+                nguoiDung: action.nguoiDung
+            }
     
         default:
             break;
